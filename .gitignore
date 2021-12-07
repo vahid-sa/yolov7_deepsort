@@ -342,3 +342,8 @@ cython_debug/
 *.cfg
 *.names
 *.data
+*/backup/
+*/train.txt
+*/trainvalno5k.txt
+*/coco_testdev
+*/coco_val_5k.list
