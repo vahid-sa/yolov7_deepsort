@@ -337,3 +337,8 @@ cython_debug/
 !.vscode/*.code-snippets
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,pycharm+all,images,video
+
+*.weights
+*.cfg
+*.names
+*.data
