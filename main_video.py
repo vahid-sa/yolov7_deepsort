@@ -3,7 +3,7 @@ import argparse
 from threading import Thread, enumerate
 from queue import Queue
 from os import path as osp
-from darknet_video import VideoDarknet
+from yolov4.darknet_video import VideoDarknet
 
 
 def str2int(video_path):

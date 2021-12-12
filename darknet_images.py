@@ -6,7 +6,7 @@ import time
 import cv2
 import numpy as np
 from os import path as osp
-from darknet import DarkNet
+from yolov4.darknet import DarkNet
 
 darknet: DarkNet
 

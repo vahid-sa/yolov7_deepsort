@@ -2,7 +2,7 @@ from ctypes import *
 import random
 import cv2
 import time
-from darknet import DarkNet
+from .darknet import DarkNet
 
 class VideoDarknet:
     def __init__(self, input_video, weights_path, config_path, data_file_path, libso_path):
