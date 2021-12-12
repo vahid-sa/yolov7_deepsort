@@ -2,11 +2,13 @@ import argparse
 import os
 import glob
 import random
-import darknet
 import time
 import cv2
 import numpy as np
-import darknet
+from os import path as osp
+from darknet import DarkNet
+
+darknet: DarkNet
 
 
 def parser():
@@ -32,6 +34,8 @@ def parser():
                         help="path to data file")
     parser.add_argument("--thresh", type=float, default=.25,
                         help="remove detections with lower confidence")
+    parser.add_argument("--libso", type=str, default="./libdarknet.so",
+                        help="Path to 'libdarknet.so' file")
     return parser.parse_args()
 
 
@@ -45,6 +49,9 @@ def check_arguments_errors(args):
         raise(ValueError("Invalid data file path {}".format(os.path.abspath(args.data_file))))
     if args.input and not os.path.exists(args.input):
         raise(ValueError("Invalid image path {}".format(os.path.abspath(args.input))))
+    if not osp.isfile(args.libso):
+        raise FileNotFoundError("Invalid libso path {}".format(osp.expanduser(osp.expandvars(osp.abspath(args.libso)))))
+
 
 
 def check_batch_shape(images, batch_size):
@@ -191,8 +198,10 @@ def batch_detection_example():
 
 
 def main():
+    global darknet
     args = parser()
     check_arguments_errors(args)
+    darknet = DarkNet(osp.expanduser(osp.expandvars(osp.abspath(args.libso))))
 
     random.seed(3)  # deterministic bbox colors
     network, class_names, class_colors = darknet.load_network(

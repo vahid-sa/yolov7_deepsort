@@ -347,3 +347,5 @@ cython_debug/
 *trainvalno5k.txt
 *coco_testdev
 *coco_val_5k.list
+cut.py
+run*.sh
