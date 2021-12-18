@@ -342,6 +342,7 @@ cython_debug/
 *.cfg
 *.names
 *.data
+*.pb
 *backup/
 *train.txt
 *trainvalno5k.txt
