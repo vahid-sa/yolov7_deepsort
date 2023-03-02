@@ -1,0 +1,12 @@
+# Path to the input video.
+input: inputs/MOT16-03.mp4
+# Path to writing the file (optional)
+output: ""
+# Path to the YOLOv7 weights file
+weights: model_zoo/yolov7.pt
+# Specify device:: Example: cpu; cuda:0 (GPU 0); cuda:1 (GPU 1); 0,1,2 (GPUS 0, 1 and 2);
+device: cuda:0
+# Path to class names file
+names: data/coco.names
+# Path to protbuf file
+protbuf: deep_sort_config_files/market1501.pb
